@@ -86,6 +86,7 @@ export default function Navbar(): JSX.Element {
               </Link>
             </div>
           </div>
+          <div className={styles.blur}></div>
         </div>
       )}
     </>
