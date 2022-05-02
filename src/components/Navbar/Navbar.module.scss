@@ -1,0 +1,157 @@
+@use 'src/scss/colors';
+@use 'src/scss/media';
+
+$height: 2.5rem;
+$font: 14pt;
+$padding-sides: 1rem;
+$logo-size: 1.5rem;
+$transition-speed: 0.15s;
+$gap-between-elements: 1rem;
+
+@mixin flex-row-center {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+@mixin navbar-element-hover {
+  transition: $transition-speed;
+  padding: $height - 2.2rem;
+  border-radius: 10px;
+  color: colors.$nord6;
+  text-decoration: none;
+  &:hover {
+    background-color: colors.$nord0;
+    transition: $transition-speed;
+  }
+}
+
+.navbar {
+  font-size: $font;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: $height;
+  background-color: colors.$nord1;
+  border-bottom: 1px solid colors.$nord3;
+}
+.container {
+  @include flex-row-center;
+  height: $height;
+  padding-left: $padding-sides;
+  padding-right: $padding-sides;
+  width: 100%;
+  max-width: media.$screen-xl-min;
+  @include media.xs {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+.left {
+  @include flex-row-center;
+  justify-content: flex-start;
+  margin-right: auto;
+  @include media.xs {
+    display: none;
+  }
+}
+.right {
+  @include flex-row-center;
+  justify-content: flex-end;
+  margin-left: auto;
+  gap: $gap-between-elements;
+  @include media.xs {
+    display: none;
+  }
+}
+.links {
+  @include flex-row-center;
+  justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
+  gap: $gap-between-elements;
+  li > a {
+    @include navbar-element-hover;
+  }
+}
+.logo-link {
+  @include flex-row-center;
+  @include navbar-element-hover;
+  gap: 0.3rem;
+  .logo {
+    height: $logo-size;
+    width: $logo-size;
+  }
+  @include media.xs {
+    height: $logo-size;
+    width: $logo-size;
+  }
+}
+.sign-in > a {
+  @include navbar-element-hover;
+  color: colors.$nord11;
+}
+
+.center-small {
+  margin-left: auto;
+  margin-right: auto;
+  @include media.gt-xs {
+    display: none;
+  }
+}
+.right-small {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  button {
+    @include navbar-element-hover;
+    height: 2rem;
+    width: 2rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+  @include media.gt-xs {
+    display: none;
+  }
+}
+
+.menu {
+  width: 100vw;
+  background-color: colors.$nord2;
+  @include media.gt-xs {
+    display: none;
+  }
+}
+.menu-items {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.menu-links {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  gap: $gap-between-elements;
+  a {
+    text-decoration: none;
+    color: colors.$nord6;
+  }
+}
+.menu-sign-in {
+  border-top: 1px solid colors.$nord3;
+  width: 90%;
+  display: flex;
+  justify-content: center;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  a {
+    font-size: 1.5rem;
+    text-decoration: none;
+    color: colors.$nord11;
+  }
+}

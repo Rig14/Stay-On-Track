@@ -1,0 +1,16 @@
+@use '../colors';
+
+.article {
+  color: colors.$nord6;
+  line-height: 1.5rem;
+  letter-spacing: 0.05rem;
+  h1 {
+    strong {
+      font-weight: bold;
+      font-size: 2rem;
+    }
+    i {
+      opacity: 0.8;
+    }
+  }
+}
